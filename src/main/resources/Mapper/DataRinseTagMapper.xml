@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glmht.excelDemo.DataRinseTagDao">
+
+	<!-- 通过<resultMap>映射实体类属性名和表的字段名对应关系 -->
+	<resultMap id="DataRinseTagMapping" type="DataRinseTag">
+		<!-- id属性来映射主键字段 -->
+		<id column="id" property="id" javaType="Long" />
+		<!-- result属性映射非主键字段 -->
+		<result column="name" property="name" javaType="String" />
+		<result column="business_table" property="businessBable" javaType="String" />
+		<result column="field_name" property="fieldName" javaType="String" />
+		<result column="state_code" property="stateCode" javaType="String" />
+		<result column="tag_type" property="tagType" javaType="String" />
+		<result column="definition" property="definition" javaType="String" />
+		<result column="number" property="number" javaType="String" />
+		<result column="usage_scenario" property="usageScenario" javaType="String" />
+		<result column="first_catalog" property="firstCatalog" javaType="String" />
+		<result column="catalog" property="catalog" javaType="String" />
+		<result column="type_catalog" property="typeCatalog" javaType="String" />
+		<result column="update_mode" property="updateMode" javaType="String" />
+		<result column="open_state" property="openState" javaType="String" />
+		<result column="principal" property="principal" javaType="String" />
+		<result column="principal_id" property="principalId" javaType="String" />
+		<result column="status" property="status" javaType="String" />
+		<result column="data_source_id" property="dataSourceId" javaType="Long" />
+		<result column="online_status" property="onlineStatus" javaType="String" />
+		<result column="create_by" property="createBy" javaType="String" />
+		<result column="create_date" property="createDate" javaType="Date" />
+		<result column="update_by" property="updateBy" javaType="String" />
+		<result column="update_date" property="updateDate" javaType="Date" />
+		<result column="version" property="version" javaType="String" />
+		<result column="del_flag" property="delFlag" javaType="String" />
+		<result column="generative_rule" property="generativeRule" javaType="String" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,
+		name,
+		business_table,
+		field_name,
+		state_code,
+		tag_type,
+		definition,
+		number,
+		usage_scenario,
+		first_catalog,
+		catalog,
+		type_catalog,
+		update_mode,
+		open_state,
+		principal,
+		principal_id,
+		status,
+		data_source_id,
+		online_status,
+		create_by,
+		create_date,
+		update_by,
+		update_date,
+		version,
+		del_flag,
+		generative_rule
+	</sql>
+	<sql id="insert_Column_List">
+		name,
+		business_table,
+		field_name,
+		state_code,
+		tag_type,
+		definition,
+		number,
+		usage_scenario,
+		first_catalog,
+		catalog,
+		type_catalog,
+		update_mode,
+		open_state,
+		principal,
+		principal_id,
+		status,
+		data_source_id,
+		online_status,
+		create_by,
+		create_date,
+		update_by,
+		update_date,
+		version,
+		del_flag,
+		generative_rule
+	</sql>
+	<select id="selectDataRinseTagAll" resultMap="DataRinseTagMapping">
+		select
+		<include refid="Base_Column_List"></include>
+		from data_rinse_tag
+	</select>
+	<select id="selectDataRinseTagById" parameterType="Long">
+		select
+		<include refid="Base_Column_List"></include>
+		from data_rinse_tag where id = #{id}
+	</select>
+	<insert id="insertDataRinseTag" parameterType="DataRinseTag" useGeneratedKeys="true" keyProperty="id"> 
+		insert into data_rinse_tag
+		(
+		<include refid="insert_Column_List"></include>
+		)
+		values(
+		#{name},
+		#{businessTable},
+		#{fieldName},
+		#{stateCode},
+		#{tagType},
+		#{definition},
+		#{number},
+		#{usageScenario},
+		#{firstCatalog},
+		#{catalog},
+		#{typeCatalog},
+		#{updateMode},
+		#{openState},
+		#{principal},
+		#{principalId},
+		#{status},
+		#{dataSourceId},
+		#{onlineStatus},
+		#{createBy},
+		now(),
+		#{updateBy},
+		now(),
+		#{version},
+		#{generativeRule},
+		#{delFlag}
+		)
+	</insert>
+	<delete id="delDataRinseTag" parameterType="Long">
+	    DELETE from data_rinse_tag where id=#{id}
+	</delete>
+
+</mapper>

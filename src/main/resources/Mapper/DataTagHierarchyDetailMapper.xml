@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glmht.excelDemo.DataTagHierarchyDetailDao">
+
+	<!-- 通过<resultMap>映射实体类属性名和表的字段名对应关系 -->
+	<resultMap id="DataTagHierarchyDetailMapping"
+		type="DataTagHierarchyDetail">
+		<!-- id属性来映射主键字段 -->
+		<id column="id" property="id" javaType="Long" />
+		<!-- result属性映射非主键字段 -->
+		<result column="tag_hierarchy_id` " property="tagHierarchyId"
+			javaType="String" />
+		<result column="business_table" property="businessTable"
+			javaType="Long" />
+		<result column="field_name" property="fieldName"
+			javaType="String" />
+		<result column="description" property="description"
+			javaType="String" />
+		<result column="state" property="state" javaType="Long" />
+		<result column="option" property="option" javaType="String" />
+		<result column="value" property="value" javaType="String" />
+		<result column="begin_time" property="beginTime"
+			javaType="String" />
+		<result column="end_time" property="endTime" javaType="String" />
+		<result column="begin_value" property="beginValue"
+			javaType="String" />
+		<result column="end_value" property="endValue"
+			javaType="String" />
+		<result column="status" property="estimatesNumber"
+			javaType="String" />
+		<result column="create_by" property="createBy"
+			javaType="String" />
+		<result column="create_date" property="createDate"
+			javaType="Date" />
+		<result column="update_by" property="updateBy"
+			javaType="String" />
+		<result column="update_date" property="updateDate"
+			javaType="Date" />
+		<result column="version" property="version" javaType="String" />
+		<result column="del_flag" property="delFlag" javaType="String" />
+
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,
+		tag_hierarchy_id,
+		business_table,
+		field_name,
+		description,
+		state,
+		option,
+		value,
+		begin_time,
+		end_time,
+		begin_value,
+		end_value,
+		estimates_number,
+		create_by,
+		create_date,
+		update_by,
+		update_date,
+		version,
+		del_flag
+	</sql>
+	<sql id="insert_Column_List">
+
+		tag_hierarchy_id,
+		business_table,
+		field_name,
+		description,
+		state,
+		option,
+		value,
+		begin_time,
+		end_time,
+		begin_value,
+		end_value,
+		estimates_number,
+		create_by,
+		create_date,
+		update_by,
+		update_date,
+		version,
+		del_flag
+	</sql>
+	<select id="selectDataTagHierarchyDetail"
+		resultMap="DataTagHierarchyDetail">
+		select
+		<include refid="Base_Column_List"></include>
+		from data_tag_hierarchy_detail
+	</select>
+	<select id="selectDataTagHierarchyDetail" parameterType="Long">
+		select
+		<include refid="Base_Column_List"></include>
+		from data_tag_hierarchy_detail where id = #{id}
+	</select>
+	<insert id="insertDataTagHierarchyDetail"
+		parameterType="DataTagHierarchyDetail" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into data_tag_hierarchy_detail
+		(
+		<include refid="insert_Column_List"></include>
+		)
+		values(
+		#{tagHierarchyId},
+		#{businessTable},
+		#{fieldName},
+		#{description},
+		#{state},
+		#{option},
+		#{value},
+		#{beginTime},
+		#{endTime},
+		#{beginValue},
+		#{endValue},
+		#{estimatesNumber},
+		#{createBy},
+		#{createDate},
+		#{updateBy},
+		#{updateDate},
+		#{version},
+		#{delFlag}
+		)
+	</insert>
+	<delete id="delDataTagHierarchyDetail" parameterType="Long">
+		DELETE from
+		data_tag_hierarchy_detail where
+		id=#{id}
+	</delete>
+
+</mapper>
