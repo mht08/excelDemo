@@ -22,6 +22,12 @@ public class ImportExcel {
 			throw new RuntimeException("格式不对");
 		}
 	}
+	
+	
+	public static void main(String[] args) {
+		String ss = "1.2.2";
+		System.out.println(ss.substring(ss.lastIndexOf(".")));
+	}
 
 	public static List<Map<String, Object>> readExcel(String fileName, InputStream inputStream) throws Exception {
 
@@ -33,8 +39,9 @@ public class ImportExcel {
 		} else {
 			workbook = new XSSFWorkbook(inputStream);
 		}
+		//返回工作薄（Workbook）中工作表（Sheet）对象
 		Sheet sheet = workbook.getSheetAt(0);
-		// 得到标题行
+		// 获取Sheet表标题行
 		Row titleRow = sheet.getRow(0);
 
 		int lastRowNum = sheet.getLastRowNum();
@@ -54,8 +61,12 @@ public class ImportExcel {
 					cell.setCellType(CellType.STRING);
 					cellValue = cell.getStringCellValue();
 				}
+				
+				if(cellValue == null) {
+					cellValue = "";
+				}
 
-				map.put(key, cellValue);
+				map.put(key.trim(), cellValue.trim());
 			}
 			list.add(map);
 		}
