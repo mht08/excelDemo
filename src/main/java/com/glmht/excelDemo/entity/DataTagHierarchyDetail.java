@@ -1,4 +1,4 @@
-package com.glmht.excelDemo.entily;
+package com.glmht.excelDemo.entity;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ public class DataTagHierarchyDetail {
 	private String fieldName; // '字段名称',
 	private String description; // '描述',
 	private Long state; // '字段类型',
-	private String option; // '选择',
+	private String option1; // '选择',
 	private String value; // '值',
 	private String beginTime; // '开始时间',
 	private String endTime; // '结束时间',
@@ -58,11 +58,11 @@ public class DataTagHierarchyDetail {
 	public void setState(Long state) {
 		this.state = state;
 	}
-	public String getOption() {
-		return option;
+	public String getOption1() {
+		return option1;
 	}
-	public void setOption(String option) {
-		this.option = option;
+	public void setOption1(String option1) {
+		this.option1 = option1;
 	}
 	public String getValue() {
 		return value;

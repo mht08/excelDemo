@@ -2,7 +2,7 @@ package com.glmht.excelDemo.service;
 
 import java.util.List;
 
-import com.glmht.excelDemo.entily.DataRinseTag;
+import com.glmht.excelDemo.entity.DataRinseTag;
 
 
 

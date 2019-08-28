@@ -1,12 +1,14 @@
-package com.glmht.excelDemo.dao;
+package com.glmht.excelDemo.mapper;
 
 import java.util.List;
 
-import com.glmht.excelDemo.entily.DataRinseTag;
+import org.apache.ibatis.annotations.Mapper;
+
+import com.glmht.excelDemo.entity.DataRinseTag;
 
 
-
-public interface DataRinseTagDao {
+@Mapper
+public interface DataRinseTagMapper {
 
 	/**
 	 * 查询所有

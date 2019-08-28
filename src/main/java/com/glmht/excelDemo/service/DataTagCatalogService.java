@@ -2,7 +2,7 @@ package com.glmht.excelDemo.service;
 
 import java.util.List;
 
-import com.glmht.excelDemo.entily.DataTagCatalog;
+import com.glmht.excelDemo.entity.DataTagCatalog;
 
 
 
@@ -40,4 +40,10 @@ public interface DataTagCatalogService {
 	 * @return
 	 */
 	public void  delDataTagCatalog(Long id);
+	
+	/**
+	 * 最大值
+	 * @return
+	 */
+	public int maxNumber(String parentNumber);
 }

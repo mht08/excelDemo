@@ -1,12 +1,14 @@
-package com.glmht.excelDemo.dao;
+package com.glmht.excelDemo.mapper;
 
 import java.util.List;
 
-import com.glmht.excelDemo.entily.DataTag;
+import org.apache.ibatis.annotations.Mapper;
+
+import com.glmht.excelDemo.entity.DataTag;
 
 
-
-public interface DataTagDao {
+@Mapper
+public interface DataTagMapper {
 	/**
 	 * 查询所有
 	 * @return

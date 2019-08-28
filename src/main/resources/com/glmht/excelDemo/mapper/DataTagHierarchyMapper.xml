@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.glmht.excelDemo.DataTagHierarchyDao">
+<mapper
+	namespace="com.glmht.excelDemo.mapper.DataTagHierarchyMapper">
 
 	<!-- 通过<resultMap>映射实体类属性名和表的字段名对应关系 -->
-	<resultMap id="DataTagHierarchyMapping" type="DataTagHierarchy">
+	<resultMap id="DataTagHierarchyMapping"
+		type="DataTagHierarchy">
 		<!-- id属性来映射主键字段 -->
 		<id column="id" property="id" javaType="Long" />
 		<!-- result属性映射非主键字段 -->
 		<result column="name" property="name" javaType="String" />
 		<result column="tag_id" property="tagId" javaType="Long" />
-		<result column="description" property="description" javaType="String" />
-		<result column="estimates_number" property="estimatesNumber" javaType="String" />
-		<result column="proportion" property="proportion" javaType="String" />
-		<result column="usage_scenario" property="usageScenario" javaType="String" />
-		<result column="generative_rule" property="generativeRule" javaType="String" />
-		<result column="data_source_name" property="dataSourceName" javaType="String" />
-		<result column="data_source_library" property="dataSourceLibrary" javaType="String" />
-		<result column="create_by" property="createBy" javaType="String" />
-		<result column="create_date" property="createDate" javaType="Date" />
-		<result column="update_by" property="updateBy" javaType="String" />
-		<result column="update_date" property="updateDate" javaType="Date" />
+		<result column="description" property="description"
+			javaType="String" />
+		<result column="estimates_number" property="estimatesNumber"
+			javaType="String" />
+		<result column="proportion" property="proportion"
+			javaType="String" />
+		<result column="usage_scenario" property="usageScenario"
+			javaType="String" />
+		<result column="generative_rule" property="generativeRule"
+			javaType="String" />
+		<result column="data_source_name" property="dataSourceName"
+			javaType="String" />
+		<result column="data_source_library"
+			property="dataSourceLibrary" javaType="String" />
+		<result column="create_by" property="createBy"
+			javaType="String" />
+		<result column="create_date" property="createDate"
+			javaType="Date" />
+		<result column="update_by" property="updateBy"
+			javaType="String" />
+		<result column="update_date" property="updateDate"
+			javaType="Date" />
 		<result column="version" property="version" javaType="String" />
 		<result column="del_flag" property="delFlag" javaType="String" />
-		
+
 	</resultMap>
 	<sql id="Base_Column_List">
 		id,
@@ -59,17 +72,21 @@
 		version,
 		del_flag
 	</sql>
-	<select id="selectDataTagHierarchyAll" resultMap="DataTagHierarchyMapping">
+	<select id="selectDataTagHierarchyAll"
+		resultMap="DataTagHierarchyMapping">
 		select
 		<include refid="Base_Column_List"></include>
 		from data_tag_hierarchy
 	</select>
-	<select id="selectDataTagHierarchyById" parameterType="Long">
+	<select id="selectDataTagHierarchyById"
+		resultMap="DataTagHierarchyMapping" parameterType="Long">
 		select
 		<include refid="Base_Column_List"></include>
 		from data_tag_hierarchy where id = #{id}
 	</select>
-	<insert id="insertDataTagHierarchy" parameterType="DataTagHierarchy" useGeneratedKeys="true" keyProperty="id"> 
+	<insert id="insertDataTagHierarchy"
+		parameterType="DataTagHierarchy" useGeneratedKeys="true"
+		keyProperty="id">
 		insert into data_tag_hierarchy
 		(
 		<include refid="insert_Column_List"></include>
@@ -80,7 +97,6 @@
 		#{description},
 		#{estimatesNumber},
 		#{proportion},
-		#{definition},
 		#{usageScenario},
 		#{generativeRule},
 		#{dataSourceName},
@@ -89,12 +105,13 @@
 		now(),
 		#{updateBy},
 		now(),
-		#{version},
-		#{delFlag}
+		0,
+		0
 		)
 	</insert>
 	<delete id="delDataTagHierarchy" parameterType="Long">
-	    DELETE from data_tag_hierarchy where id=#{id}
+		DELETE from
+		data_tag_hierarchy where id=#{id}
 	</delete>
 
 </mapper>

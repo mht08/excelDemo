@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.glmht.excelDemo.dao.DataTagHierarchyDetailDao;
-import com.glmht.excelDemo.entily.DataTagHierarchyDetail;
+import com.glmht.excelDemo.entity.DataTagHierarchyDetail;
+import com.glmht.excelDemo.mapper.DataTagHierarchyDetailMapper;
 import com.glmht.excelDemo.service.DataTagHierarchyDetailService;
 
 @Service("DataTagHierarchyDetailService")
 public class DataTagHierarchyDetailServiceImpl implements DataTagHierarchyDetailService {
 	@Autowired
-	private DataTagHierarchyDetailDao dataTagHierarchyDetailDao;
+	private DataTagHierarchyDetailMapper dataTagHierarchyDetailDao;
 
 	@Override
 	public List<DataTagHierarchyDetail> selectDataTagHierarchyDetailAll() {

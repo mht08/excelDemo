@@ -1,12 +1,14 @@
-package com.glmht.excelDemo.dao;
+package com.glmht.excelDemo.mapper;
 
 import java.util.List;
 
-import com.glmht.excelDemo.entily.DataTagHierarchyDetail;
+import org.apache.ibatis.annotations.Mapper;
+
+import com.glmht.excelDemo.entity.DataTagHierarchyDetail;
 
 
-
-public interface DataTagHierarchyDetailDao {
+@Mapper
+public interface DataTagHierarchyDetailMapper {
 	/**
 	 * 查询所有
 	 * @return

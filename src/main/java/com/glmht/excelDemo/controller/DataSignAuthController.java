@@ -9,6 +9,7 @@ import com.glmht.excelDemo.entity.DataSignAuth;
 import com.glmht.excelDemo.service.DataSignAuthService;
 
 @RestController
+@RequestMapping("/DataSignAuthController")
 public class DataSignAuthController {
 
 	@Autowired

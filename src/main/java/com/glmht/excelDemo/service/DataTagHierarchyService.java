@@ -2,7 +2,7 @@ package com.glmht.excelDemo.service;
 
 import java.util.List;
 
-import com.glmht.excelDemo.entily.DataTagHierarchy;
+import com.glmht.excelDemo.entity.DataTagHierarchy;
 
 
 

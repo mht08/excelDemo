@@ -1,4 +1,4 @@
-package com.glmht.excelDemo.entily;
+package com.glmht.excelDemo.entity;
 
 import java.util.Date;
 

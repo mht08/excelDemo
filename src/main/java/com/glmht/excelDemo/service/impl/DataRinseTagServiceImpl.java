@@ -5,25 +5,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.glmht.excelDemo.dao.DataRinseTagDao;
-import com.glmht.excelDemo.entily.DataRinseTag;
+import com.glmht.excelDemo.entity.DataRinseTag;
+import com.glmht.excelDemo.mapper.DataRinseTagMapper;
 import com.glmht.excelDemo.service.DataRinseTagService;
 
 @Service("DataRinseTagService")
 public class DataRinseTagServiceImpl implements DataRinseTagService {
 	@Autowired
-	private DataRinseTagDao dataRinseTagDao;
+	private DataRinseTagMapper dataRinseTagMapper;
 
 	@Override
 	public List<DataRinseTag> selectDataRinseTagAll() {
 		// TODO Auto-generated method stub
-		return dataRinseTagDao.selectDataRinseTagAll();
+		return dataRinseTagMapper.selectDataRinseTagAll();
 	}
 
 	@Override
 	public DataRinseTag selectDataRinseTagById(Long id) {
 		// TODO Auto-generated method stub
-		return dataRinseTagDao.selectDataRinseTagById(id);
+		return dataRinseTagMapper.selectDataRinseTagById(id);
 	}
 
 	@Override
@@ -35,13 +35,13 @@ public class DataRinseTagServiceImpl implements DataRinseTagService {
 	@Override
 	public int insertDataRinseTag(DataRinseTag dataRinseTag) {
 		// TODO Auto-generated method stub
-		return dataRinseTagDao.insertDataRinseTag(dataRinseTag);
+		return dataRinseTagMapper.insertDataRinseTag(dataRinseTag);
 	}
 
 	@Override
 	public void delDataRinseTag(Long id) {
 		// TODO Auto-generated method stub
-		dataRinseTagDao.delDataRinseTag(id);
+		dataRinseTagMapper.delDataRinseTag(id);
 	}
 
 }
